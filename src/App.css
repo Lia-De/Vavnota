@@ -1,0 +1,122 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.homeContainer {
+  padding: 2rem;
+  border: 2px dashed green;
+  margin-bottom: auto;
+  
+}
+.icon {
+    filter: drop-shadow(0 2px 4px rgba(64, 0, 94, 0.37));
+}
+
+.btnSmaller {
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.2rem 0.5rem;
+}
+.btnToggle {
+  background-color: lightgray;
+  border: 1px solid black;
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+  border-radius: 8px;
+  padding: 0.4em 0.8em;
+  font-size: 1em;
+  font-weight: 700;
+  font-family: "Tinos", serif;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  margin-top: 1rem;
+}
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.yarnValidationForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.yarnValidationForm div {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto auto ;
+  gap: 0.5rem;
+  justify-content: center;
+}
+.yarnValidationForm div label{
+  grid-column: 1 / 3;
+}
+.yarnValidationForm button {
+  display: inline-block;
+  
+}
+
+.projectList {
+  margin-top: 2rem;
+  text-align: left;
+  list-style-type: none;
+}
+
+.visuallyHidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media print {
+  .projectMetaLink,
+  .warpingBoxesToggle,
+  .chainControl,
+  .printHidden {
+    display: none !important;
+  }
+  body {
+    font-size: 0.8rem;
+  }
+  * {
+    box-shadow: none !important;
+  }
+  #projectDetail {
+    position: static !important;
+  }
+  .yarnMetricsWarp, .yarnMetricsWeft {
+    grid-column: 1 / span 2;
+    padding: 0;
+    position: static !important;
+  }
+  .yarnMetricsWarp h2, .yarnMetricsWeft h2 {
+    position: static !important;   /* return to normal flow */
+    transform: none !important;    /* reset translate */
+  }
+  .pageBreak {
+    page-break-before: always; /* legacy */
+    break-before: page;        /* modern */
+  }
+  .chainCount input {
+    color: white !important;
+  }
+}

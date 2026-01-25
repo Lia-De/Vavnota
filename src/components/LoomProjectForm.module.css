@@ -1,0 +1,99 @@
+.createForm {
+    max-width: 750px;
+}
+.createForm label {
+    text-align: right;
+    display: block;
+}
+.createForm input {
+ line-height: 1.2rem;
+ text-align:center;
+}
+.createForm label {
+    font-style:italic;
+}
+.opt, 
+.optHalf, 
+.optLong,
+.optDouble {
+    margin-left: auto;
+    margin-right: 1rem;
+    margin-bottom: 0.5rem;
+    max-width: 6rem;
+    border: 1px solid black;
+    border-width: 0 1px 1px 0;
+    border-radius: 0 0 0.5rem;
+    box-shadow: 2px 2px 4px rgba(148, 148, 148, 0.2);
+}
+.optHalf {
+    width: 3rem;
+}
+.optLong {
+    max-width: 100%;
+    width: 30rem;
+    margin-left: 1rem;
+}
+.optDouble {
+    max-width: 100%;
+    width: 8rem;
+    margin:auto 0.2rem;
+    padding-left: 0.2rem;
+}
+select.optDouble, .createForm textarea, input  {
+    font-family: Rubik, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+}
+.yarnEntry > h4 {
+    margin-top: 0.5rem;
+    grid-column: span 3;
+}
+
+.yarnMetricsWarp {
+    grid-column: 1 / span 2;
+    padding: 0.5rem 0;
+    border: 1px dotted #ccc;
+    margin: 1rem 0 0 0;
+}
+.yarnMetricsWarp > h2{
+    margin: 0 0 0.5rem 0;
+}
+.yarnEntry {
+    border: 1px solid #ccc;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    grid-column: 1/ span 3;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.warpMetricsGrid {
+    grid-column: 1 / span 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 1rem;
+    border: 1px dotted #ccc;
+    margin: 0.3rem 0;
+    padding: 0.5rem 0 1rem 0;
+}
+ .warpMetricsGrid > h2 {
+    margin: 0 0 0.5rem 0;
+    grid-column: span 4;
+}
+.warpMetricsGrid > p {
+        margin: 0.1rem;
+}
+.warpMetricsGrid > label {
+    text-align:center;
+}
+
+.createForm>button {
+    border: 1px dotted #ccc;
+    cursor: not-allowed;
+}
+.btnCreate{
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+    color: #489999;
+    cursor: pointer !important;
+    border: 1px solid #489999 !important;
+}
