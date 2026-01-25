@@ -1,6 +1,6 @@
-# Vavnota - Loom Project Manager
+# Vävnota - Loom Project Helper
 
-A modern React web application designed for weavers to plan, manage, and document their weaving projects. Vavnota helps you organize yarn information, track warp and weft specifications, and visualize your loom projects.
+A modern React web application designed for weavers to plan, and document their weaving projects. Vavnota helps you organize yarn information, track warp and weft specifications, and visualize your loom projects.
 
 ## Features
 
