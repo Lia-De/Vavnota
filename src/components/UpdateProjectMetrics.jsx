@@ -5,6 +5,7 @@ import { updateProjectParameters } from "../services/projectHelpers";
 import { useAtom } from "jotai";
 
 import { currentProjectAtom } from "../atoms/currentProjectAtom";
+import { FaCheck } from "react-icons/fa";
 
 export default function UpdateProjectMetrics ({project, setUiState, warp}) {
 
@@ -44,7 +45,7 @@ export default function UpdateProjectMetrics ({project, setUiState, warp}) {
                     })}
                 />
                 <button type="submit" className="submitBtn printHidden"  disabled={!isDirty}>
-                    <GrEdit />
+                    {isDirty ? <FaCheck /> : <GrEdit />}
                 </button>
                 
                 {errors[fieldName] && (

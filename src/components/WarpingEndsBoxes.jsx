@@ -1,6 +1,3 @@
-import { useState } from "react";
-import WarpChains from "./WarpChains";
-
 export default function WarpingEndsBoxes({
   groupSize = 20,
   totalEnds,
