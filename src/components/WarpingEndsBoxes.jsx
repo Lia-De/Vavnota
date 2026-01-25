@@ -36,7 +36,7 @@ export default function WarpingEndsBoxes({
             border: '2px solid #000',
           }}
         />
-        <span>= {groupSize} ends</span>
+        <span>= {groupSize} trådar</span>
 
         {remainder > 0 && (
           <>
@@ -49,7 +49,8 @@ export default function WarpingEndsBoxes({
                 marginLeft: 12,
               }}
             />
-            <span>= 2 end, remainder: {remainder}</span>
+            <span>= 2 trådar </span>
+              {/* , remainder: {remainder}</span> */}
           </>
         )}
       </div>
