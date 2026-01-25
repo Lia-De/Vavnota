@@ -1,8 +1,6 @@
 import { HashRouter, Routes, Route } from 'react-router'
-import Home from './pages/Home.jsx'
-
-import './App.css'
 import ProjectView from './pages/ProjectView.jsx'
+import './App.css'
 
 function App() {
   

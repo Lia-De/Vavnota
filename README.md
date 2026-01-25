@@ -4,12 +4,9 @@ A modern React web application designed for weavers to plan, manage, and documen
 
 ## Features
 
-- **Project Management**: Create and manage multiple weaving projects with detailed metadata
-- **Yarn Tracking**: Store and edit yarn specifications including fiber content, thickness, and color information
 - **Warp/Weft Planning**: Define and modify warp and weft chain specifications for your projects
-- **Project List View**: Browse and manage all your projects in an organized list
 - **Project Details**: View comprehensive project information including metrics and yarn details
-- **Print Support**: Generate printable versions of your project specifications
+- **Print Support**: Generate printable versions of your project specifications to help with warping
 - **State Management**: Seamless state persistence using Jotai atoms for reactive updates
 - **Responsive Design**: Works smoothly across different screen sizes
 
@@ -29,10 +26,8 @@ A modern React web application designed for weavers to plan, manage, and documen
 ```
 src/
 ├── pages/
-│   ├── Home.jsx              # Home/dashboard page
 │   └── ProjectView.jsx       # Detailed project view
 ├── components/
-│   ├── ShowProjectList.jsx   # Project list display
 │   ├── YarnForm.jsx          # Yarn input form
 │   ├── YarnEditing.jsx       # Yarn editing interface
 │   ├── CreateWarpChain.jsx   # Warp chain creation
@@ -43,7 +38,6 @@ src/
 │   └── WarpingHelp.jsx       # Help/guidance component
 ├── atoms/
 │   ├── currentProjectAtom.js # Current project state
-│   ├── projectListAtom.js    # Projects list state
 │   ├── warpAtom.js           # Warp specifications state
 │   └── weftAtom.js           # Weft specifications state
 ├── constants/
@@ -112,32 +106,24 @@ npm run lint
 1. **Create a New Project**: Start by creating a new weaving project with basic information (name, description, etc.)
 2. **Add Yarns**: Define the yarns you'll be using, including fiber type, weight, and color
 3. **Plan Warp/Weft**: Set up your warp and weft specifications with chain details
-4. **Manage Projects**: View all projects, edit details, and track project status
-5. **Print**: Generate a printable version of your project for reference at the loom
+5. **Print**: Generate a printable version of your project for reference at the weaving studio
 
 ## Features in Detail
 
 ### Project Management
-- Create new weaving projects
+- Create new weaving projects - Not implemented
 - Edit project information and metrics
 - View project lists with filtering options
 - Delete or archive projects
 
 ### Yarn Management
-- Add multiple yarn entries
+- Add different warp and weft yarn
 - Edit yarn specifications (fiber, thickness, color)
 - View yarn information in project context
-- Organize yarns by project
 
 ### Warp/Weft Planning
 - Create warp chains with specific counts
-- Define weft specifications
-- Use warp as weft when applicable
 - Visual representation of warping setup
-
-## Contributing
-
-Feel free to submit issues and enhancement requests!
 
 ## License
 
