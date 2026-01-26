@@ -48,19 +48,7 @@ export default function WarpingEndsBoxes({
   return (
     
     <div className="warpingBoxesBox">
-      {/* Button to add mark */}
-      {warping && <div style={{ marginBottom: '2rem' }}>
-        <button 
-          onClick={handleAddMark}
-        >
-          ✕ Checka av en ruta
-        </button>
-        <button className="submitBtn"
-          onClick={handleRemoveMark}
-        >
-          Ångra
-        </button>
-      </div>}
+
 
       {/* Legend */}
       <div
@@ -161,6 +149,20 @@ export default function WarpingEndsBoxes({
           );
         })}
       </div>
+            {/* Button to add mark */}
+      {warping && <div style={{ margin: '2rem 0' }}>
+        <button 
+        style={{padding: "4rem 1rem"}}
+          onClick={handleAddMark}
+        >
+          ✕ Checka av en ruta
+        </button>
+        <button className="submitBtn"
+          onClick={handleRemoveMark}
+        >
+          Ångra
+        </button>
+      </div>}
     </div>
   );
 }
