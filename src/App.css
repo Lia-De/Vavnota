@@ -139,6 +139,11 @@
   .warpingBoxesBox {
     margin: 0 auto;
   }
-
+  .yarnMetricsWarp, .yarnMetricsWeft {
+    padding-bottom: 1em;
+  }
+  .yarnMetricsWarp h2, .yarnMetricsWeft h2 {
+    font-size: 1.2rem;
+  }
 
 }

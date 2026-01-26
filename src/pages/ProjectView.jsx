@@ -106,7 +106,7 @@ return (
 
         
     <div className={'yarnMetricsWeft ' + (uiState.warpAsWeft ? 'printHidden' : '')}>
-      <h2>Inslagsgarn {uiState.warpAsWeft ? 
+      <h2>Inslag {uiState.warpAsWeft ? 
         (<MdInfoOutline className="icon" title="Varpgarn används även som inslag" />) 
         : <button className={'submitBtn printHidden'} onClick={() => 
           setUiState(prev => ({...prev, yarnEditing: true, yarnToEdit: weft}))} >
