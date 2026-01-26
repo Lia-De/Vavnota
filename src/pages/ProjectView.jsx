@@ -50,16 +50,20 @@ export default function ProjectView() {
 const onYarnChanges = async (editedYarn) => {
     if (editedYarn.usageType==0) {
       setWarp(prev => ({...prev, ...editedYarn}))
-      uiState.warpAsWeft && setWeft(warp)
+      uiState.warpAsWeft && setWeft(_=> ({...warp, usageType: 1}))
     } else {
-      setWeft(prev => ({...prev, ...editedYarn}))
+      uiState.warpAsWeft 
+        ? setWeft({...warp, usageType: 1}) 
+        : setWeft(prev => ({...prev, ...editedYarn}))
     }
     setUiState(prev => ({...prev, forceReload: true}))
   }
 
   useEffect(() => {
-    uiState.warpAsWeft ? setWeft(warp) : setWeft(defaultWeft);
-  }, [uiState.warpAsWeft])
+    if (uiState.warpAsWeft) {
+      setWeft({...warp, usageType: 1});
+    }
+  }, [uiState.warpAsWeft, warp])
 
 
   if (!projectData && projectId) return (
