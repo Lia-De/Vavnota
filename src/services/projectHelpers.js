@@ -182,4 +182,5 @@ export const useClearAtoms = () => {
   localStorage.removeItem('project');
   localStorage.removeItem('warp');
   localStorage.removeItem('weft');
+  localStorage.removeItem('warpingBoxesFilled');
 }
