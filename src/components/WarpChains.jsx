@@ -1,31 +1,37 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CreateWarpChain from "../components/CreateWarpChain.jsx";
 
 
 export default function WarpChains({totalEnds, warping=false}) {
   const [chainCount, setChainCount] = useState(4);
-  const [idealEndsPerChain, setIdealEndsPerChain] = useState(Math.floor(totalEnds/chainCount));
+  const [idealEndsPerChain, setIdealEndsPerChain] = 
+    useState(Math.floor(totalEnds/chainCount));
 
+  useEffect(()=>{
+    totalEnds && setIdealEndsPerChain(Math.floor(totalEnds/chainCount))
+  },[totalEnds])
 
   return (
     <div className="warpChainsGrid">
       {/* User input */}
-      {!warping && <h3 className="printHidden">Varpflätor</h3>}
-      {!warping && <div className="chainControl">
-        <label>
-          Antal kedjor: <input
-            className="opt optHalf"
-            type="number"
-            min="0"
-            max="50"
-            value={chainCount}
-            onChange={(e) => {
-              setChainCount(Number(e.target.value)); 
-              setIdealEndsPerChain(Math.floor(totalEnds/Number(e.target.value)))
-            }}
-          /> 
-        </label>
-      </div>}
+      {!warping && 
+        <><h3 className="printHidden">Varpflätor</h3>
+        <div className="chainControl">
+          <label>
+            Antal kedjor: <input
+              className="opt optHalf"
+              type="number"
+              min="0"
+              max="50"
+              value={chainCount}
+              onChange={(e) => {
+                setChainCount(Number(e.target.value)); 
+                setIdealEndsPerChain(Math.floor(totalEnds/Number(e.target.value)))
+              }}
+            /> 
+          </label>
+        </div>
+      </>}
 
       <CreateWarpChain 
         idealEndsPerChain={idealEndsPerChain}

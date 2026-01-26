@@ -15,13 +15,13 @@ export default function UpdateProjectInfo ({project, setUiState, name=false, des
             onSubmit(data);
             reset({ [fieldName]: data[fieldName] });
         };
-        const placeholder = (field) =>{
+        const placeholder = () =>{
             return name ? "Projektnamn" : "Beskrivning";
         }
         const value = watch(fieldName);
         return (
             <form onSubmit={handleSubmit(submit)}>
-                <input placeholder={placeholder(fieldName)}
+                <input placeholder={placeholder()}
                     className={name? "updateNameInput" : "updateDescInput desc"}
                 {...register(fieldName, {required: "Fältet är obligatoriskt"})}
                 />

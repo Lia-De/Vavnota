@@ -26,7 +26,8 @@ import logo from '../assets/weave-svgrepo-com.svg';
 export default function ProjectView() {
   
   const [projectData, setProjectData] = useAtom(currentProjectAtom);
-  const project = projectData ? new LoomProject(projectData) : new LoomProject(defaultLoomProject);
+  const [project, setProject] = useState(projectData ? new LoomProject(projectData) : new LoomProject(defaultLoomProject))
+  
   const projectId=project.id ? project.id : null;
   const [warp, setWarp] = useAtom(warpAtom);
   const [weft, setWeft] = useAtom(weftAtom);
@@ -64,6 +65,12 @@ const onYarnChanges = async (editedYarn) => {
       setWeft({...warp, usageType: 1});
     }
   }, [uiState.warpAsWeft, warp])
+
+  useEffect(()=>{
+    if (projectData) {
+      setProject(new LoomProject(projectData));
+    }
+  },[projectData])
 
 
   if (!projectData && projectId) return (
