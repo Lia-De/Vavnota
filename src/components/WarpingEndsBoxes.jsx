@@ -150,7 +150,7 @@ export default function WarpingEndsBoxes({
         })}
       </div>
             {/* Button to add mark */}
-      {warping && <div style={{ margin: '2rem 0' }}>
+      {warping && <div className="printHidden" style={{ margin: '2rem 0' }}>
         <button 
         style={{padding: "4rem 1rem"}}
           onClick={handleAddMark}
