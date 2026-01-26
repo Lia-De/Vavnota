@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useAtom } from 'jotai';
+import { warpingBoxesFilledAtom } from '../atoms/warpingBoxesFilledAtom';
 
 export default function WarpingEndsBoxes({
   groupSize = 20,
@@ -8,9 +9,22 @@ export default function WarpingEndsBoxes({
   boxSize = 20,
   warping,
 }) {
-  // const warpingGroupOptions = [10, 20, 30, 40, 50];
-  // const [groupSize, setGroupSize] = useState(20);
-  const [markedBoxes, setMarkedBoxes] = useState(new Set());
+
+const [warpingBoxesFilled, setWarpingBoxesFilled] = useAtom(warpingBoxesFilledAtom);
+const markedBoxes = new Set(Array.from({length: warpingBoxesFilled}, (_, i) => i));
+
+const handleAddMark = () => {
+  if (warpingBoxesFilled < fullBoxes + remainderBoxes) {
+    setWarpingBoxesFilled(warpingBoxesFilled + 1);
+  }
+};
+
+const handleRemoveMark = () => {
+  if (warpingBoxesFilled > 0) {
+    setWarpingBoxesFilled(warpingBoxesFilled - 1);
+  }
+};
+
 
   if (!groupSize || groupSize <= 0) return null;
 
@@ -18,32 +32,6 @@ export default function WarpingEndsBoxes({
   const remainder = totalEnds % groupSize;
   const remainderBoxes = remainder > 0 ? Math.floor(remainder/2) : 0;
 
-  const handleAddMark = () => {
-    // Find the first box that hasn't been marked
-    for (let i = 0; i < fullBoxes + remainderBoxes; i++) {
-      if (!markedBoxes.has(i)) {
-        const newMarked = new Set(markedBoxes);
-        newMarked.add(i);
-        setMarkedBoxes(newMarked);
-        return;
-      }
-    }
-  };
-
-  const handleRemoveMark = () => {
-    // Find the last marked box and remove it
-    let lastMarked = -1;
-    for (let i = 0; i < fullBoxes + remainderBoxes; i++) {
-      if (markedBoxes.has(i)) {
-        lastMarked = i;
-      }
-    }
-    if (lastMarked !== -1) {
-      const newMarked = new Set(markedBoxes);
-      newMarked.delete(lastMarked);
-      setMarkedBoxes(newMarked);
-    }
-  };
 
   return (
     
