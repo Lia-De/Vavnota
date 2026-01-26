@@ -346,18 +346,3 @@ h2 > button {
     grid-template-columns: 1fr 1fr 1fr;
 }
 
-@media screen and (max-width: 450px) {
-    #root {
-        max-width: 100vw;
-    }
-  .warpingHelp {
-    grid-template-columns: 1fr !important;
-  }
-  .warpingBoxesBox {
-    grid-row: unset;
-    grid-column: 1/2;
-  }
-  .warpChainsGrid {
-    grid-column: 1/2;
-  }
-}

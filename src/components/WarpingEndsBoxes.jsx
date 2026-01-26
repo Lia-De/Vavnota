@@ -56,8 +56,9 @@ export default function WarpingEndsBoxes({
       <div
         style={{
           display: 'grid',
-          gridTemplateColumns: `repeat(${maxPerRow}, ${boxSize}px)`,
-          gap: '4px',
+          gridTemplateColumns: `repeat(${maxPerRow}, 1.5rem)`,
+          // gridTemplateColumns: `repeat(${maxPerRow}, ${boxSize}px)`,
+          gap: '4px', justifySelf:"center"
         }}
       >
         {Array.from({ length: fullBoxes }).map((_, index) => {
@@ -67,8 +68,10 @@ export default function WarpingEndsBoxes({
             <div
               key={`box-${index}`}
               style={{
-                width: boxSize,
-                height: boxSize,
+                width: "1.5rem",
+                height: "1.5rem",
+                // width: boxSize,
+                // height: boxSize,
                 border: '1px solid #000',
                 borderRight: isGroupDivider ? '3px solid #000' : '1px solid #000',
               }}

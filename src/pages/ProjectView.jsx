@@ -68,7 +68,7 @@ const onYarnChanges = async (editedYarn) => {
     : <p>Laddar projekt... {uiState.loadingError}</p>);
 
 return (
-  <div>
+  <>
   <h1 className="headerfontBold printHidden">
       Lias <img src={logo} alt="logo" height="36px" /> Vävnota
   </h1>
@@ -150,6 +150,6 @@ return (
       onChainCreated={() => setUiState(prev => ({...prev, forceReload: true}))} />
   </section>: ''}
 
-  </div>
+  </>
 );
 }
