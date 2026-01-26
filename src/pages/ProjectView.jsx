@@ -50,7 +50,7 @@ export default function ProjectView() {
 const onYarnChanges = async (editedYarn) => {
     if (editedYarn.usageType==0) {
       setWarp(prev => ({...prev, ...editedYarn}))
-      uiState.warpAsWeft && setWeft(prev => ({...prev, ...editedYarn}))
+      uiState.warpAsWeft && setWeft(warp)
     } else {
       setWeft(prev => ({...prev, ...editedYarn}))
     }
@@ -145,9 +145,14 @@ return (
   </section>
     
   {project.endsInWarp ? <section>
-      <h3>Varpa - räkning</h3>
-    <WarpingHelp endsInWarp={project.endsInWarp}
-      onChainCreated={() => setUiState(prev => ({...prev, forceReload: true}))} />
+      <h3>Varpa - räkning
+
+      <button className="printHidden">
+        <Link to="/warping" >Till varpning</Link>
+      </button>
+
+      </h3>
+    <WarpingHelp endsInWarp={project.endsInWarp} warping={false} />
   </section>: ''}
 
   </>

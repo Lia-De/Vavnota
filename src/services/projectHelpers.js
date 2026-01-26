@@ -1,10 +1,4 @@
 
-export const updateList = (projectList, projectId, updatedProject) => {
-  return projectList.map(p => 
-    p.id === projectId ? { ...updatedProject } : p
-  );
-};
-
 /**
  * Updates project parameters with validation (mirrors C# UpdateParameters endpoint)
  * @param {Object} project - The project to update
@@ -120,11 +114,6 @@ export const updateProjectParameters = (project, dto) => {
   return { success: true, data: new LoomProject(updatedProject), errors: [] };
 }
 
-export const deleteProject = (projectList, projectId) => {
-  return projectList.filter(p => p.id !== projectId);
-};
-
-
 // utils/projectHelpers.js
 export class LoomProject {
   constructor(data) {
@@ -190,7 +179,6 @@ export class LoomProject {
 
 export const useClearAtoms = () => {
       // Clear all localStorage entries used by atomWithStorage
-  localStorage.removeItem('projectList');
   localStorage.removeItem('project');
   localStorage.removeItem('warp');
   localStorage.removeItem('weft');

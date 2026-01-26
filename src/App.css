@@ -67,12 +67,6 @@
   
 }
 
-.projectList {
-  margin-top: 2rem;
-  text-align: left;
-  list-style-type: none;
-}
-
 .visuallyHidden {
   position: absolute !important;
   width: 1px;

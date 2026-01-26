@@ -2,7 +2,7 @@ import { useState } from "react";
 import CreateWarpChain from "../components/CreateWarpChain.jsx";
 
 
-export default function WarpChains({totalEnds}) {
+export default function WarpChains({totalEnds, warping=false}) {
   const [chainCount, setChainCount] = useState(4);
   const [idealEndsPerChain, setIdealEndsPerChain] = useState(Math.floor(totalEnds/chainCount));
 
@@ -10,8 +10,8 @@ export default function WarpChains({totalEnds}) {
   return (
     <div className="warpChainsGrid">
       {/* User input */}
-      <h3 className="printHidden">Varpflätor</h3>
-      <div className="chainControl">
+      {!warping && <h3 className="printHidden">Varpflätor</h3>}
+      {!warping && <div className="chainControl">
         <label>
           Antal kedjor: <input
             className="opt optHalf"
@@ -25,7 +25,7 @@ export default function WarpChains({totalEnds}) {
             }}
           /> 
         </label>
-      </div>
+      </div>}
 
       <CreateWarpChain 
         idealEndsPerChain={idealEndsPerChain}
