@@ -345,3 +345,19 @@ h2 > button {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
+
+@media screen and (max-width: 600px) {
+    #root {
+        max-width: 100vw;
+    }
+  .warpingHelp {
+    grid-template-columns: 1fr !important;
+  }
+  .warpingBoxesBox {
+    grid-row: unset;
+    grid-column: 1/2;
+  }
+  .warpChainsGrid {
+    grid-column: 1/2;
+  }
+}
