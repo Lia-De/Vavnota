@@ -97,3 +97,18 @@ select.optDouble, .createForm textarea, input  {
     cursor: pointer !important;
     border: 1px solid #489999 !important;
 }
+
+@media screen and (max-width: 450px) {
+
+    .yarnEntry {
+        display: block;
+    }
+    .optLong {
+    width: 90%;
+    }
+    .createForm label {
+        text-align:center;
+        margin-top: 0.5em;
+    }
+
+}
