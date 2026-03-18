@@ -1,8 +1,11 @@
 import { useAtom } from 'jotai';
+import { warpChainsAtom } from '../atoms/warpChainsAtom';
 import { warpingBoxesFilledAtom } from '../atoms/warpingBoxesFilledAtom';
+import { currentProjectAtom } from '../atoms/currentProjectAtom';
+import { useState, useEffect } from 'react';
+import { FaCheck } from 'react-icons/fa';
 
 export default function WarpingEndsBoxes({
-  groupSize = 20,
   totalEnds,
   boxesPerGroup = 5,
   maxPerRow = 10,
@@ -12,19 +15,52 @@ export default function WarpingEndsBoxes({
 
 const [warpingBoxesFilled, setWarpingBoxesFilled] = useAtom(warpingBoxesFilledAtom);
 const markedBoxes = new Set(Array.from({length: warpingBoxesFilled}, (_, i) => i));
+const [projectData, setProjectData] = useAtom(currentProjectAtom);
+const [groupSize, setGroupSize] = useState(projectData.warpingGroupSize);
+const warpingGroupOptions = [10, 20, 30, 40, 50];
+const [currentChain, setCurrentChain] = useState(0);
+
+const [warpChains, setWarpChains] = useAtom(warpChainsAtom);
+const [alreadyWarped, setAlreadyWarped] = useState(0);
+
+// state for custom group size
+const [customGroupSize, setCustomGroupSize] = useState(null);
+
+// Handler for custom group size
+const handleCustomGroupSize = () => {
+  const parsed = parseInt(customGroupSize, 10);
+
+  if (!isNaN(parsed) && parsed > 0) {
+    setGroupSize(parsed);
+  }
+};
+
+useEffect(()=> {
+    if (groupSize)
+        setProjectData(prev => ({...prev, warpingGroupSize: groupSize}))
+},[groupSize])
 
 const handleAddMark = () => {
   if (warpingBoxesFilled < fullBoxes + remainderBoxes) {
     setWarpingBoxesFilled(warpingBoxesFilled + 1);
+    setAlreadyWarped(prev=> prev+groupSize);
   }
 };
 
 const handleRemoveMark = () => {
   if (warpingBoxesFilled > 0) {
     setWarpingBoxesFilled(warpingBoxesFilled - 1);
+    setAlreadyWarped(prev=> prev-groupSize);
   }
 };
 
+useEffect(()=> {
+  if (warpChains.length > 0) {
+    // const count = warpChains.map(chain => chain.warpedEndsInChain);
+    const count = warpChains.reduce((sum, chain) => sum + chain.warpedEndsInChain, 0);
+    console.log(count);
+  }
+},[warpChains]);
 
   if (!groupSize || groupSize <= 0) return null;
 
@@ -37,7 +73,40 @@ const handleRemoveMark = () => {
     
     <div className="warpingBoxesBox">
 
+     {/* Toggle */}
+      <div className="warpingBoxesToggle" >
+          {warpingGroupOptions.map((size) => (
+          <button className={groupSize === size ?"btnWarpingToggle":"btnWarpingToggleInactive"}
+          key={size}
+          onClick={() => setGroupSize(size)}
+          >
+              {size}
+          </button>
+          ))}
+          <div className="customGroupSizeBox">
+            <input className="opt optHalf"
+              type="number"
+              value={customGroupSize}
+              placeholder="??"
+              title="Anpassad gruppstorlek"
+              onChange={(e) => setCustomGroupSize(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  handleCustomGroupSize();
+                }
+              }}
+            />
+            
+            <button 
+              title="Sätt anpassad gruppstorlek"
+              onClick={handleCustomGroupSize}
+              className={groupSize === Number(customGroupSize) ?"btnWarpingToggle":"btnWarpingToggleInactive"}
+            >
+              <FaCheck />
+            </button>
 
+          </div>
+      </div>
       {/* Legend */}
       <div
         style={{
@@ -69,7 +138,6 @@ const handleRemoveMark = () => {
               }}
             />
             <span>= 2 trådar </span>
-              {/* , remainder: {remainder}</span> */}
           </>
         )}
       </div>
@@ -143,7 +211,9 @@ const handleRemoveMark = () => {
         style={{padding: "4rem 1rem"}}
           onClick={handleAddMark}
         >
-          ✕ Checka av en ruta
+          ✕ Checka av en ruta <br />
+          {currentChain == 0 ? '':`Nuvarande kedja: ${currentChain}`}
+          Varpat: {alreadyWarped}
         </button>
         <button className="submitBtn"
           onClick={handleRemoveMark}
