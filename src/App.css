@@ -111,6 +111,9 @@
   .chainCount input {
     color: white !important;
   }
+  .printOnly {
+    display: inline;
+  }
 }
 
 @media screen and (max-width: 450px) {
