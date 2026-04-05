@@ -41,7 +41,7 @@ export default function CreateWarpChain({ idealEndsPerChain, chainCount}) {
             <label>
                 Kors (gäller alla kedjor)<br />
                 <select
-                    className="opt"
+                    className="opt printHidden"
                     {...register("sharedCrossCount")}
                     defaultValue="1x1"
                 >
