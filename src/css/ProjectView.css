@@ -302,6 +302,21 @@ p.italics {
     max-width: 3.5rem;
     text-align:right;
 }
+
+.printOnly {
+  display: none;
+}
+
+@media print {
+  .printHidden {
+    display: none !important;
+  }
+
+  .printOnly {
+    display: inline;
+  }
+}
+
 .chainCount {
     display: inline-block;
     font-style: italic;
