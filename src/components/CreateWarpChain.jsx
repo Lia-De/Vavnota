@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import { useForm } from "react-hook-form";
 
 export default function CreateWarpChain({ idealEndsPerChain, chainCount}) {
-    const { register, handleSubmit, reset, getValues,setValue} = useForm({ mode: "onChange" });
+    const { register, handleSubmit, watch, reset, getValues,setValue} = useForm({ mode: "onChange" });
     
     const onSubmit = () => {
         reset();
