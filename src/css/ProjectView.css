@@ -307,13 +307,6 @@ p.italics {
   display: none;
 }
 
-@media print {
-  
-  .printOnly {
-    display: inline;
-  }
-}
-
 .chainCount {
     display: inline-block;
     font-style: italic;
