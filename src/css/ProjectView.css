@@ -308,10 +308,7 @@ p.italics {
 }
 
 @media print {
-  .printHidden {
-    display: none !important;
-  }
-
+  
   .printOnly {
     display: inline;
   }
