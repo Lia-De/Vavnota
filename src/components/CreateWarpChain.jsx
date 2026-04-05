@@ -54,6 +54,10 @@ export default function CreateWarpChain({ idealEndsPerChain, chainCount}) {
                     );
                     })}
                 </select>
+                 {/* Printable value */}
+                  <span className="opt printOnly">
+                    {watch("sharedCrossCount")}
+                  </span>
                 </label>
 
             <div>
