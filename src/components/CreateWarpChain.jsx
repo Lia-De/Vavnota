@@ -2,12 +2,16 @@ import {useEffect, useState} from "react";
 import { useForm } from "react-hook-form";
 
 export default function CreateWarpChain({ idealEndsPerChain, chainCount}) {
-    const { register, handleSubmit, watch, reset, getValues,setValue} = useForm({ mode: "onChange" });
-    
+    const { register, handleSubmit, watch, reset, getValues,setValue} = useForm({
+      mode: "onChange",
+      defaultValues: {
+        sharedCrossCount: "1x1",
+      },
+    });
     const onSubmit = () => {
         reset();
     }
-
+    const selectedCross = watch("sharedCrossCount");
     useEffect(() => {
         // remove ideal ends per chain when it changes
         const currentValues = getValues("warpChains");
@@ -43,7 +47,6 @@ export default function CreateWarpChain({ idealEndsPerChain, chainCount}) {
                 <select
                     className="opt printHidden"
                     {...register("sharedCrossCount")}
-                    defaultValue="1x1"
                 >
                     {Array.from({ length: 20 }, (_, i) => {
                     const value = `${i + 1}x${i + 1}`;
@@ -55,9 +58,7 @@ export default function CreateWarpChain({ idealEndsPerChain, chainCount}) {
                     })}
                 </select>
                  {/* Printable value */}
-                  <span className="opt printOnly">
-                    {watch("sharedCrossCount")}
-                  </span>
+                    <span className="opt printOnly">{selectedCross}</span>
                 </label>
 
             <div>
